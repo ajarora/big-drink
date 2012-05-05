@@ -1,5 +1,5 @@
 BigDrink::Application.routes.draw do
-  get "bars/new"
+  get "venues/new"
 
   root to: 'static_pages#home'
   get "static_pages/home"
