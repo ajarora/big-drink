@@ -1,2 +1,14 @@
-<h1>Venues#new</h1>
-<p>Find me in app/views/venues/new.html.erb</p>
+<h1>Add Venue</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@venue) do |f| %>
+  	  <%= render 'shared/error_messages' %>
+
+      <%= f.label :foursquareID, "Foursquare ID" %>
+      <%= f.text_field :foursquareID %>
+
+      <%= f.submit "Create Venue", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

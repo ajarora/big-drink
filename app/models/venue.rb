@@ -19,5 +19,5 @@ class Venue < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 75 }
   validates :foursquareID, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :lat,  presence: true
-  validates :long, presence: true, 
+  validates :long, presence: true
 end

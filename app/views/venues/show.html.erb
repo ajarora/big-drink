@@ -1,0 +1,12 @@
+<% provide(:title, @venue.name) %>
+<div class="row">
+	<aside class="span4">
+    	<section>
+			<h1><%= @venue.name %></h1>
+			<ul>
+				<li>Foursquare ID: <%= @venue.foursquareID %></li>
+				<li>LatLong: <%= @venue.lat %>, <%= @venue.long %></li>
+			</ul>
+		</section>
+	</aside>
+</div>
