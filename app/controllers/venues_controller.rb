@@ -4,6 +4,10 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
   end
   
+  def index
+      @venues = Venue.paginate(page: params[:page])
+  end
+    
   def new
     @venue = Venue.new(@venue)
   end
