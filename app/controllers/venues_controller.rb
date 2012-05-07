@@ -2,6 +2,7 @@ class VenuesController < ApplicationController
   
   def show
     @venue = Venue.find(params[:id])
+    @drinks = @venue.drinks.paginate(page: params[:page])
   end
   
   def index

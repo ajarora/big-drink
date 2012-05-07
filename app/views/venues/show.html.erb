@@ -9,4 +9,13 @@
 			</ul>
 		</section>
 	</aside>
+	<div class="span8">
+	    <% if @venue.drinks.any? %>
+	      <h3>Drinks (<%= @venue.drinks.count %>)</h3>
+	      <ol class="drinks">
+	        <%= render @drinks %>
+	      </ol>
+	      <%= will_paginate @drinks %>
+	    <% end %>
+	</div>
 </div>

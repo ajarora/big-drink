@@ -1,0 +1,22 @@
+<%= provide(:title, 'New Drink') %>
+<h1>New Drink</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@drink) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+	  <%= f.collection_select(:venue_id, Venue.all, :id, :name) %>
+
+      <%= f.label :image_url %>
+      <%= f.text_field :image_url %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.submit "Create Drink", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
