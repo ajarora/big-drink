@@ -12,11 +12,11 @@
 #
 
 class Drink < ActiveRecord::Base
-  attr_accessible :description, :image_url, :name
+  attr_accessible :name, :venue_id, :description, :image_url
   belongs_to :venue
   
   validates :name,  presence: true, length: { maximum: 75 }
-  validates :foursquareID, presence: true
+  validates :venue_id, presence: true
   validates :description, length: { maximum: 500 }
   validates :image_url, length: { maximum: 500 }
   

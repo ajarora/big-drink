@@ -1,1 +1,14 @@
 <% provide(:title, @drink.name) %>
+<div class="row">
+	<aside class="span4">
+    	<section>
+			<h1>
+				<%=image_tag( @drink.image_url , alt: @drink.name , class: "avatar", :size => "100x100")%>
+				The <%= @drink.name %> from <%= link_to @drink.venue.name, @drink.venue %>
+			</h1>
+			<ul>
+				<li><span class="description"><%= @drink.description %></span></li>
+			</ul>
+		</section>
+	</aside>
+</div>

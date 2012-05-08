@@ -2,7 +2,7 @@ BigDrink::Application.routes.draw do
   resources :venues
   resources :drinks
   
-  root to: 'static_pages#home'  
+  root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

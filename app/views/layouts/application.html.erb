@@ -6,8 +6,8 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-	<%# render 'layouts/drink_meta' if ... %>
-	<%# render 'layouts/venue_meta' if ... %>
+	<%= render 'layouts/drink-meta' if @action == "show_drink" %>
+	<%= render 'layouts/venue-meta' if @action == "show_venue" %>
   </head>
   <body>
     <%= render 'layouts/header' %>

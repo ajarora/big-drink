@@ -3,6 +3,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @drinks = @venue.drinks.paginate(page: params[:page])
+    @action = "show_venue"
   end
   
   def index

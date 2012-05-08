@@ -1,9 +1,16 @@
 class DrinksController < ApplicationController
+  
+  def show
+    @drink = Drink.find(params[:id])
+    @action = "show_drink"
+  end
+  
   def new
     @drink = Drink.new(@drink)
   end
   
   def index
+    @drinks = Drink.paginate(page: params[:page])
   end
 
   def create

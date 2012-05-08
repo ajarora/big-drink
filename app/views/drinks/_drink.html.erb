@@ -1,5 +1,5 @@
 <li>
-	image_tag(<%= drink.image_url %>, alt: <%= drink.name %>, class: "avatar")
-	<%= link_to drink.name, drink %>
+	<%= link_to image_tag( drink.image_url , alt: drink.name , class: "avatar", :size => "100x100"), drink %>
+	The <%= link_to drink.name, drink %> from <%= link_to drink.venue.name, drink.venue %> 
 	<span class="description"><%= drink.description %></span>
 </li>
