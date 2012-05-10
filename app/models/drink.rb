@@ -12,9 +12,13 @@
 #
 
 class Drink < ActiveRecord::Base
-  attr_accessible :name, :venue_id, :description, :image_url
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   belongs_to :venue
   
+  attr_accessible :name, :venue_id, :description, :image_url
+
   validates :name,  presence: true, length: { maximum: 75 }
   validates :venue_id, presence: true
   validates :description, length: { maximum: 500 }

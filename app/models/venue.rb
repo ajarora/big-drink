@@ -12,8 +12,12 @@
 #
 
 class Venue < ActiveRecord::Base
-  attr_accessible :name, :foursquareID, :lat, :long
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   has_many :drinks, dependent: :destroy
+  
+  attr_accessible :name, :foursquareID, :lat, :long
   
   before_save { |venue| venue.foursquareID = foursquareID.downcase }
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506221144) do
+ActiveRecord::Schema.define(:version => 20120510232000) do
 
   create_table "drinks", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(:version => 20120506221144) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
+
+  add_index "drinks", ["slug"], :name => "index_drinks_on_slug", :unique => true
 
   create_table "venues", :force => true do |t|
     t.string   "name"
@@ -29,8 +32,10 @@ ActiveRecord::Schema.define(:version => 20120506221144) do
     t.float    "long"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "slug"
   end
 
   add_index "venues", ["foursquareID"], :name => "index_venues_on_foursquareID", :unique => true
+  add_index "venues", ["slug"], :name => "index_venues_on_slug", :unique => true
 
 end
