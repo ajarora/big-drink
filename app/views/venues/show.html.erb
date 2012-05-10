@@ -2,7 +2,10 @@
 <div class="row">
 	<aside class="span4">
     	<section>
-			<h1><%= @venue.name %></h1>
+			<h1>
+				<%= gmap_image_100(@venue) %>
+				<%= @venue.name %>
+			</h1>	
 			<ul>
 				<li>Foursquare ID: <%= @venue.foursquareID %></li>
 				<li>LatLong: <%= @venue.lat %>, <%= @venue.long %></li>

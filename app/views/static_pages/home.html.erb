@@ -7,3 +7,13 @@
 
   <%= link_to "Connect to Facebook!", '#', class: "btn btn-large btn-primary" %>
 </div>
+
+<h2>Drinks</h1>
+
+<%= will_paginate @drinks %>
+
+<ul class="drinks">
+  	<%= render @drinks %>
+</ul>
+
+<%= will_paginate @drinks %>
