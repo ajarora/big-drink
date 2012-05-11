@@ -2,17 +2,19 @@
   <h1>Welcome <%= @user['name'] if @user %> to The Big Drink</h1>
 
   <h2>
-    This is the home page for The Big Drink.
+    A map of all the drinks and bars will go here soon!
   </h2>
 
-	<%= link_to 'Log In', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url) %>
+	<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url),
+		class: "btn btn-primary") do %>
+		<i class="icon-user icon-white"> </i>
+		Login
+	<% end %>
 </div>
-
-<h2>Drinks</h1>
 
 <%= will_paginate @drinks %>
 
-<ul class="drinks">
+<ul class="thumbnails">
   	<%= render @drinks %>
 </ul>
 
