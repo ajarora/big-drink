@@ -1,10 +1,12 @@
 BigDrink::Application.routes.draw do
   resources :venues
   resources :drinks
+  get "oauth/redirect"
   
   root to: 'static_pages#home'
   
   get "oauth/redirect"
+  match 'oauth_redirect_url', to: 'oauth/redirect'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
