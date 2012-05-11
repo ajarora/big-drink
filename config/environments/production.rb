@@ -64,4 +64,8 @@ BigDrink::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  DOMAIN = "warm-snow-9881.herokuapp.com"    
+  FACEBOOK_APP_ID = "405838576105435"
+  FACEBOOK_SECRET = "3f9696168ffa763b398f9e25d3f30fe8"
 end

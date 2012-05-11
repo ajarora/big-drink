@@ -5,7 +5,7 @@
     This is the home page for The Big Drink.
   </h2>
 
-  <%= link_to "Connect to Facebook!", '#', class: "btn btn-large btn-primary" %>
+  <%= link_to 'Log In', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => url("/auth/facebook/callback")) %>
 </div>
 
 <h2>Drinks</h1>
