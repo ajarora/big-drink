@@ -1,18 +1,30 @@
 <li class="span3">
 	<div class="thumbnail">
-		<%= link_to image_tag( drink.image_url , alt: drink.name , size: "260x180"), drink %>
+		<%= link_to image_tag( drink.image_url , alt: drink.name ), drink %>
 		<div class="caption">
 			<h5>The <%= link_to drink.name, drink %> from <%= link_to drink.venue.name, drink.venue %></h5>
 			<p><%= drink.description %></p>
-			<p><%= link_to('#', class: "btn btn-primary") do %>
-					<i class="icon-ok icon-white"> </i>
-					Drank
+			<p>
+				<% if @user %>
+					<%= link_to(@graph.put_connections("me", "bigdrinksf:drink", :drink => drink_url(drink)), class: "btn btn-primary") do %>
+						<i class="icon-ok icon-white"> </i>
+						Drank
+					<% end %>
+					<%= link_to('#', class: "btn") do %>
+						<i class="icon-heart"> </i>
+						Want
+					<% end %>
+				<% else %>
+					<%= link_to('#', class: "btn btn-primary disabled") do %>
+						<i class="icon-ok icon-white"> </i>
+						Drank
+					<% end %>
+					<%= link_to('#', class: "btn disabled") do %>
+						<i class="icon-heart"> </i>
+						Want
+					<% end %>
 				<% end %>
-				<%= link_to('#', class: "btn") do %>
-					<i class="icon-heart"> </i>
-					Want
-				<% end %>
-			</p>
+			</p>			
 		</div>
 	</div>
 </li>

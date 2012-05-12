@@ -2,10 +2,11 @@
   <h1>Welcome <%= @user['name'] if @user %> to The Big Drink</h1>
 
   <h2>
-    A map of all the drinks and bars will go here soon!
+    A map of drinks will go here soon!
   </h2>
 
-	<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => oauth_redirect_url),
+	<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:permissions => "publish_stream",
+															  :callback => oauth_redirect_url),
 		class: "btn btn-primary") do %>
 		<i class="icon-user icon-white"> </i>
 		Login
