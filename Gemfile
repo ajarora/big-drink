@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'bootstrap-sass', '2.0.0'
+gem 'bootstrap-sass'
 gem 'foursquare2'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.5'
 gem 'koala'
 gem 'friendly_id'
 gem 'thin'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

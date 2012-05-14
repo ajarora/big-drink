@@ -1,15 +1,42 @@
-<div class="center hero-unit">
-  <h1>Welcome <%= @user['name'] if @user %> to The Big Drink</h1>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<%= FACEBOOK_APP_ID %>', // App ID
+      channelUrl : '<%= url_for "/channel.html" %> ', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
 
-  <h2>
-    A map of drinks will go here soon!
-  </h2>
+    // Additional initialization code here
+  };
 
-	<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:permissions => "publish_stream",
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+<div class="hero-unit">
+  <h1>the big drink</h1>
+  <p>
+    Welcome <%= @user['name'] if @user %> to the big drink! A map of drinks will go in this area soon.
+  </p>
+
+	<% if @user %>
+
+	<% else %>
+		<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:permissions => "publish_stream",
 															  :callback => oauth_redirect_url),
-		class: "btn btn-primary") do %>
-		<i class="icon-user icon-white"> </i>
-		Login
+					class: "facebook-signin-button") do %>
+						<i class="icon-user icon-white"> </i>
+						Login
+		<% end %>
 	<% end %>
 </div>
 

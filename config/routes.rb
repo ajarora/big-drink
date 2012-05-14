@@ -1,12 +1,30 @@
 BigDrink::Application.routes.draw do
+  get "users/new"
+
   resources :venues
   resources :drinks
+  resources :users
+  
   get "oauth/redirect"
   
   root to: 'static_pages#home'
   
   get "oauth/redirect"
   match 'oauth_redirect_url', to: 'oauth/redirect'
+  
+  # "Channel File" for the Facebook JavaScript SDK:
+  get '/channel.html' => proc {
+    [
+      200,
+      {
+        'Pragma'        => 'public',
+        'Cache-Control' => "max-age=#{1.year.to_i}",
+        'Expires'       => 1.year.from_now.to_s(:rfc822),
+        'Content-Type'  => 'text/html'
+      },
+      ['<script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>']
+    ]
+  }
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

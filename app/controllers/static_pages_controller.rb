@@ -12,6 +12,18 @@ class StaticPagesController < ApplicationController
     if session[:access_token]
       @user    = @graph.get_object("me")
       @friends = @graph.get_connections('me', 'friends')
+      
+      if user = User.find_by_fb_uid(@user['id'])
+        if(user.fb_access_token != session[:access_token])
+          user.fb_access_token = session[:access_token]
+          user.save
+        end
+      else # Create a new user in the db
+        user = User.create!(name:@user['name'],
+                            email: @user['email'],
+                            fb_uid: @user['id'], 
+                            fb_access_token: session[:access_token])
+      end
     end
   end  
 end

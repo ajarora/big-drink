@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510232000) do
+ActiveRecord::Schema.define(:version => 20120514004514) do
 
   create_table "drinks", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20120510232000) do
   end
 
   add_index "drinks", ["slug"], :name => "index_drinks_on_slug", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "fb_uid"
+    t.string   "fb_access_token"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "slug"
+  end
+
+  add_index "users", ["fb_uid"], :name => "index_users_on_fb_uid", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
   create_table "venues", :force => true do |t|
     t.string   "name"
