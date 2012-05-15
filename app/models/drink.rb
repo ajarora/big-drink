@@ -26,4 +26,16 @@ class Drink < ActiveRecord::Base
   validates :image_url, length: { maximum: 500 }
   
   default_scope order: 'drinks.created_at DESC'
+  
+  has_many :consumptions, foreign_key: "drank_id", dependent: :destroy
+  has_many :drinkers, through: :reverse_consumptions, source: :drinker
+  
+  def drank_by?(user)
+    consumptions.find_by_drinker_id(user.id)
+  end
+  
+  def drink!(user)
+    consumptions.create!(drinker_id: user.id)
+  end
+
 end

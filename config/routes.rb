@@ -4,6 +4,7 @@ BigDrink::Application.routes.draw do
   resources :venues
   resources :drinks
   resources :users
+  resources :consumptions, only: [:create, :destroy]
   
   get "oauth/redirect"
   

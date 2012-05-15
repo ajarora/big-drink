@@ -1,0 +1,5 @@
+<%= form_for(drink.consumptions.build(drinker_id: @user.id, drank_id: drink.id), remote: true ) do |f| %>
+  <div><%= f.hidden_field :drinker_id %></div>
+  <div><%= f.hidden_field :drank_id %></div>
+	<%= f.submit "Drank It?", class: "btn btn-large btn-primary" %>
+<% end %>

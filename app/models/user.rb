@@ -17,7 +17,22 @@ class User < ActiveRecord::Base
   
   attr_accessible :email, :fb_access_token, :fb_uid, :name
   
+  has_many :consumptions, foreign_key: "drinker_id", dependent: :destroy
+  has_many :drank_drinks, through: :consumptions, source: :drank
+  
   validates :name, presence: true, uniqueness: true
   validates :fb_uid, presence: true, uniqueness: true
   validates :fb_access_token, presence: true
+  
+  def drank?(drink)
+    consumptions.find_by_drank_id(drink.id)
+  end
+
+  def drink!(drink)
+    consumptions.create!(drank_id: drink.id)
+  end
+  
+  def undrink!(drink)
+    consumptions.find_by_drank_id(drink.id).destroy
+  end
 end

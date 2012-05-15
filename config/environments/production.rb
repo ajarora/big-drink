@@ -68,4 +68,5 @@ BigDrink::Application.configure do
   DOMAIN = "warm-snow-9881.herokuapp.com"    
   FACEBOOK_APP_ID = "405838576105435"
   FACEBOOK_SECRET = "3f9696168ffa763b398f9e25d3f30fe8"
+  FB_NAMESPACE = "bigdrinksf"
 end

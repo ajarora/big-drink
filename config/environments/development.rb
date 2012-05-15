@@ -35,7 +35,8 @@ BigDrink::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  DOMAIN = "localhost:3000"    
+  DOMAIN = "localhost:3000"
   FACEBOOK_APP_ID = "280700632020738"
   FACEBOOK_SECRET = "08baa88be39b724f04bb0f51ab2a93ca"
+  FB_NAMESPACE = "bigdrinkdev"
 end

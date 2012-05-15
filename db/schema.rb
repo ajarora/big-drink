@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514004514) do
+ActiveRecord::Schema.define(:version => 20120514040536) do
+
+  create_table "consumptions", :force => true do |t|
+    t.integer  "drinker_id"
+    t.integer  "drank_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "consumptions", ["drank_id"], :name => "index_consumptions_on_drank_id"
+  add_index "consumptions", ["drinker_id", "drank_id"], :name => "index_consumptions_on_drinker_id_and_drank_id", :unique => true
+  add_index "consumptions", ["drinker_id"], :name => "index_consumptions_on_drinker_id"
 
   create_table "drinks", :force => true do |t|
     t.string   "name"

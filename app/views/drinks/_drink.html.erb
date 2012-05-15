@@ -5,25 +5,7 @@
 			<h5>The <%= link_to drink.name, drink %> from <%= link_to drink.venue.name, drink.venue %></h5>
 			<p><%= drink.description %></p>
 			<p>
-				<% if @user %>
-					<%= link_to('#', class: "btn btn-primary") do %>
-						<i class="icon-ok icon-white"> </i>
-						Drink
-					<% end %>
-					<%= link_to('#', class: "btn") do %>
-						<i class="icon-heart"> </i>
-						Want
-					<% end %>
-				<% else %>
-					<%= link_to('#', class: "btn btn-primary disabled") do %>
-						<i class="icon-ok icon-white"> </i>
-						Drink
-					<% end %>
-					<%= link_to('#', class: "btn disabled") do %>
-						<i class="icon-heart"> </i>
-						Want
-					<% end %>
-				<% end %>
+				<%= render 'drinks/drink_actions', drink: drink %>
 			</p>			
 		</div>
 	</div>
