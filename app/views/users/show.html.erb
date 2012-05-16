@@ -3,8 +3,10 @@
   <aside class="span4">
     <section>
       <h1>
+		<%= image_tag("https://graph.facebook.com/#{@user.fb_uid}/picture") %>
         <%= @user.name %>
       </h1>
+	<strong id="drank" class="stat"><%= @user.drank_drinks.count %></strong> drinks drank
     </section>
   </aside>
 </div>

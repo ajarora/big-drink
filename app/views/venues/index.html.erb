@@ -1,6 +1,10 @@
 <%= provide(:title, 'All Bars') %>
 <h1>Venues</h1>
 
+<div class="hero-unit">
+	<%= gmaps4rails(@json) %>
+</div>
+
 <%= will_paginate %>
 
 <ul class="venues">

@@ -9,6 +9,7 @@ gem 'koala'
 gem 'friendly_id'
 gem 'thin'
 gem 'omniauth-facebook'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

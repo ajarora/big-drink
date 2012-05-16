@@ -4,16 +4,17 @@ class StaticPagesController < ApplicationController
     @drinks = Drink.paginate(page: params[:page])
     
     # Get base API Connection
-    @graph  = Koala::Facebook::GraphAPI.new(session[:access_token])
+    @graph  ||= Koala::Facebook::GraphAPI.new(session[:access_token])
     
     # Get public details of current application
-    @app  =  @graph.get_object(FACEBOOK_APP_ID)
+    @app  ||=  @graph.get_object(FACEBOOK_APP_ID)
     
     if session[:access_token]
-      @fb_user    = @graph.get_object("me")
-      @friends = @graph.get_connections('me', 'friends')
+      @fb_user    ||= @graph.get_object("me")
+      @friends ||= @graph.get_connections('me', 'friends')
+      @user ||= User.find_by_fb_uid(@fb_user['id'])
       
-      if @user = User.find_by_fb_uid(@fb_user['id'])
+      if @user
         if(@user.fb_access_token != session[:access_token])
           @user.fb_access_token = session[:access_token]
           @user.save

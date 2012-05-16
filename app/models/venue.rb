@@ -26,4 +26,7 @@ class Venue < ActiveRecord::Base
   validates :foursquareID, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :lat,  presence: true
   validates :long, presence: true
+  
+  acts_as_gmappable lat: 'lat', lng: 'long', process_geocoding: false
+
 end

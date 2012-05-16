@@ -66,6 +66,7 @@ GEM
       faraday_middleware (>= 0.8)
       hashie (~> 1.0)
     friendly_id (4.0.5)
+    gmaps4rails (1.5.1)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.1)
@@ -172,6 +173,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   foursquare2
   friendly_id
+  gmaps4rails
   jquery-rails (= 2.0.0)
   koala
   omniauth-facebook

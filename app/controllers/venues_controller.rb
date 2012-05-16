@@ -7,7 +7,8 @@ class VenuesController < ApplicationController
   end
   
   def index
-      @venues = Venue.paginate(page: params[:page])
+    @venues = Venue.paginate(page: params[:page])
+    @json = Venue.all.to_gmaps4rails
   end
     
   def new
