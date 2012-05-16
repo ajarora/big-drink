@@ -18,6 +18,7 @@ html {
 
 body {
   padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 section {
@@ -32,30 +33,10 @@ textarea {
   text-align: center;
 }
 
-/* typography */
-
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
 
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
     color: $gray;
@@ -162,6 +143,10 @@ aside {
       margin-bottom: 3px;
     }
   }
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
 }
 
 .avatar {
@@ -185,14 +170,4 @@ aside {
   display: block;
 }
 
-.avatar {
-  float: left;
-  margin-right: 10px;
-}
-
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
+@import "bootstrap-responsive";
