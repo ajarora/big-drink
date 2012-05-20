@@ -171,20 +171,8 @@ aside {
 
 
 /* bootstrap customizations */
-.brand2 {
-  float:none;
-  display: block;
-  *display:inline; /* ie7 fix */
-  *zoom:1; /* hasLayout ie7 trigger */
-  text-align:center;
-  padding: 8px 25px 12px 40px;
-  font-size: 20px;
-  font-weight: 200;
-  color: #999999;
-  line-height: 1;
-}
-
-.brand2:hover {
-  text-decoration: none;
-  color: white;
+@media (max-width: 979px) {
+  .nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a {
+    text-align: center;
+  }
 }
