@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   
   def home
     @drinks = Drink.paginate(page: params[:page])
-    @json = Venue.all.to_gmaps4rails # Venues json for Google Map
+    @json = Venue.all.to_gmaps4rails
     
     # Get base API Connection
     @graph  ||= Koala::Facebook::GraphAPI.new(session[:access_token])

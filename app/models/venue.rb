@@ -28,5 +28,9 @@ class Venue < ActiveRecord::Base
   validates :long, presence: true
   
   acts_as_gmappable lat: 'lat', lng: 'long', process_geocoding: false
+  
+  def gmaps4rails_title
+    self.name
+  end
 
 end
