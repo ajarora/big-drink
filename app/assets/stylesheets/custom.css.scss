@@ -171,22 +171,6 @@ aside {
 
 
 /* bootstrap customizations */
-
-@media (max-width: 979px) {
-  .nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a {
-    text-align: center;
-  }
-
-  .no-collapse {
-	display: none;
-  }
-
-  .navbar .btn-group {
-	padding-top: 9px;
-  }
-
-}
-
 .navbar .brand {
 	font-family: 'Cabin Sketch', cursive;
 	font-size: 36px;
@@ -241,4 +225,18 @@ aside {
 
 .btn-inverse .icon-white {
 	opacity: .7;
+}
+
+@media (max-width: 979px) {
+  .nav-collapse .nav > li > a, .nav-collapse .dropdown-menu a {
+    text-align: center;
+  }
+
+  .no-collapse {
+	display: none;
+  }
+
+  .navbar .brand {
+	font-size: 48px;
+  }
 }
