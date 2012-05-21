@@ -7,7 +7,18 @@
         <span class="icon-bar"></span>
       </a>
 	  <%= link_to "the big drink", root_path, class: "brand brand-center" %>
-	  <form class="navbar-search pull-right">
+	  <div class="btn-group pull-right no-collapse">
+        <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-user icon-white"></i> Sign in
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Sign Out</a></li>
+        </ul>
+      </div>
+	  <form class="navbar-search pull-right no-collapse">
 	    <input type="text" class="search-query span3" placeholder="Search">
 	    <div class="icon-search"></div>
 	  </form>
@@ -17,6 +28,16 @@
           <li><%= link_to "bars", venues_path %></li>
         </ul>
 	  </nav>
+	  <ul class="nav">
+		  <li>
+			<iframe allowtransparency="true" frameborder="0" scrolling="no"
+			  src="//platform.twitter.com/widgets/follow_button.html?screen_name=thebigdrink&show_screen_name=false&dnt=true&show_count=false"
+			  style="width:65px;height:20px;margin-top:9px" class="no-collapse"></iframe>
+          </li>
+          <li>
+              <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FBuiltWithBootstrap&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=56742523553" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;margin-top:9px" allowTransparency="true" class="no-collapse"></iframe>
+          </li>
+      </ul>
     </div>
   </div>
 </header>
