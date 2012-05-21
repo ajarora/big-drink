@@ -12,7 +12,7 @@ function logoCenter(){
 	var center =parseInt($('.brand.brand-center')[0].offsetWidth/2) +'px';
 	console.log(center);
 	$('.brand.brand-center').css({
-		"left":6+getDocWidth()/2 - $('.brand')[0].offsetWidth/2+'px',
+		"left":getDocWidth()/2 - $('.brand')[0].offsetWidth/2+'px',
 		"position":"absolute"
 	});
 }
