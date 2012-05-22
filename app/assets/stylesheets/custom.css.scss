@@ -175,6 +175,8 @@ aside {
 	font-family: 'Cabin Sketch', cursive;
 	font-size: 36px;
 	color: #CCC;
+	position: absolute;
+	left: 39%;
 }
 
 .navbar-search {
@@ -240,3 +242,25 @@ aside {
 	font-size: 42px;
   }
 }
+
+/* responsive brand-center customizations */
+@media (min-width: 710px) and (max-width: 1199px) {
+  .navbar .brand { left: 37%; }
+}
+
+@media (min-width: 655px) and (max-width: 709px) {
+  .navbar .brand { left: 33%; }
+}
+
+@media (min-width: 535px) and (max-width: 654px) {
+  .navbar .brand { left: 30%; }
+}
+
+@media (min-width: 490px) and (max-width: 534px) {
+  .navbar .brand { left: 26%; }
+}
+
+@media (max-width: 489px) {
+  .navbar .brand { left: 20%; }
+}
+
