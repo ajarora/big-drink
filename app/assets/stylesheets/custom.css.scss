@@ -20,6 +20,7 @@ html {
 body {
   padding-top: 60px;
   padding-bottom: 40px;
+  background-image: url("../images/bg-tile.png"); background-repeat: repeat; 
 }
 
 section {
@@ -171,12 +172,18 @@ aside {
 
 
 /* bootstrap customizations */
+
+.thumbnail {
+	background-color: white;
+}
+
 .navbar .brand {
 	font-family: 'Cabin Sketch', cursive;
 	font-size: 36px;
 	color: #CCC;
 	position: absolute;
 	left: 39%;
+	text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
 }
 
 .navbar-search {
@@ -244,7 +251,7 @@ aside {
 }
 
 /* responsive brand-center customizations */
-@media (min-width: 710px) and (max-width: 1199px) {
+@media (min-width: 970px) and (max-width: 1062px) {
   .navbar .brand { left: 37%; }
 }
 

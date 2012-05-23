@@ -1,8 +1,4 @@
 <div class="hero-unit">
-  <h1>the big drink</h1>
-  <p>
-    Welcome <%= @user.name if @user %> to the big drink! Here's a map of places with yuppy drinks:
-  </p>
   <%= gmaps4rails(@json) %>
 	<% if @user %>
 
