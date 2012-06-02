@@ -1,6 +1,4 @@
-<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:permissions => "publish_stream",
-													  	  :callback => oauth_redirect_url),
-			class: "btn btn-primary") do %>
+<%= link_to "auth/facebook" do %>
 	<i class="icon-ok icon-white"> </i>
 	Drink It?
 <% end %>

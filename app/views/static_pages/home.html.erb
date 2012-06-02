@@ -1,14 +1,5 @@
 <div class="hero-unit">
   <%= gmaps4rails(@json) %>
-	<% if @user %>
-
-	<% else %>
-		<%= link_to(Koala::Facebook::OAuth.new.url_for_oauth_code(:permissions => "publish_stream",
-															  :callback => oauth_redirect_url),
-					class: "fb_button fb_button_medium") do %>
-						Login
-		<% end %>
-	<% end %>
 </div>
 
 <%= will_paginate @drinks %>

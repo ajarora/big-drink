@@ -5,13 +5,11 @@ BigDrink::Application.routes.draw do
   resources :drinks
   resources :users
   resources :consumptions, only: [:create, :destroy]
-  
-  get "oauth/redirect"
-  
+    
   root to: 'static_pages#home'
   
-  get "oauth/redirect"
-  match 'oauth_redirect_url', to: 'oauth/redirect'
+  match "auth/facebook/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
   
   # "Channel File" for the Facebook JavaScript SDK:
   get '/channel.html' => proc {

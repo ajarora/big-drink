@@ -24,6 +24,14 @@ class User < ActiveRecord::Base
   validates :fb_uid, presence: true, uniqueness: true
   validates :fb_access_token, presence: true
   
+  def create_with_omniauth(auth)
+    create! do |user|
+      user.fb_uid = auth["uid"]
+      user.name = auth["info"]["name"]
+      user.fb_access_token = auth["credentials"]["token"]
+    end
+  end
+  
   def drank?(drink)
     consumptions.find_by_drank_id(drink.id)
   end
