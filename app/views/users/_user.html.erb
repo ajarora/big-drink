@@ -1,0 +1,7 @@
+<li>
+  <%= image_tag("https://graph.facebook.com/#{user.fb_uid}/picture") %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete, confirm: "You sure?" %>
+  <% end %>
+</li>

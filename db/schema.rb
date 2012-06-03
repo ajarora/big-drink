@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514040536) do
+ActiveRecord::Schema.define(:version => 20120603214702) do
 
   create_table "consumptions", :force => true do |t|
     t.integer  "drinker_id"
@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(:version => 20120514040536) do
     t.string   "email"
     t.string   "fb_uid"
     t.string   "fb_access_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "slug"
+    t.boolean  "admin",           :default => false
   end
 
   add_index "users", ["fb_uid"], :name => "index_users_on_fb_uid", :unique => true
