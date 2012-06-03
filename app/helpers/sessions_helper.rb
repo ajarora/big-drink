@@ -30,4 +30,8 @@ module SessionsHelper
       redirect_to root_path, notice: "Please sign in to visit that page."
     end
   end
+  
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+  end
 end
