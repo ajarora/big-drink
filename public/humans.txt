@@ -1,0 +1,36 @@
+/* TEAM */
+
+                            
+Creator: AJ Arora
+
+                            
+Site: http://www.ajarora.com
+
+                            
+Twitter: @ajaror
+
+                            
+Location: San Francisco, USA.
+
+                         						
+							
+/* THANKS */
+
+							
+Cyrus Karbassiyoon: URL
+
+						
+                 
+                        [...]
+                        
+
+                            
+/* SITE */
+                            
+Standards: HTML5, CSS3, Rails 
+
+
+Components: Heroku, Amazon S3, jQuery, Bootstrap, 
+
+                            
+Software: Ruby 1.8.7, Rails 3.2.3, PostGRES, SASS, Coffee, OmniAuth, Koala, FriendlyID, Foursquare SDK, Facebook SDK
