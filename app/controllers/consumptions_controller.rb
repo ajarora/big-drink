@@ -1,9 +1,8 @@
 class ConsumptionsController < ApplicationController
 
   def create
-    @user = User.find(params[:consumption][:drinker_id])
     @drink = Drink.find(params[:consumption][:drank_id])
-    @drink.drink!(@user)
+    @drink.drink!(current_user)
     respond_to do |format|
       format.html
       format.js

@@ -1,8 +1,13 @@
 class DrinksController < ApplicationController
+  before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy]
   
   def show
     @drink = Drink.find(params[:id])
     @action = "show_drink"
+  end
+  
+  def edit
+    @drink = Drink.find(params[:id])
   end
   
   def new
@@ -16,7 +21,7 @@ class DrinksController < ApplicationController
   def create
     @drink = Drink.new(params[:drink])
     if @drink.save
-      flash[:success] = "#{@drink.name} Successfully Added!"
+      flash[:success] = "<strong>Aw yeea.</strong> #{@drink.name} successfully added.".html_safe
       redirect_to @drink
     else
       render 'new'

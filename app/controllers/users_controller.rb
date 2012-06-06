@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
   
   def edit
-    end
+    @user = User.find(params[:id])
+  end
 
   def update
     if @user.update_attributes(params[:user])
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "<strong>Boom.</strong> User has been DESTROYED.".html_safe
+    flash[:success] = "<strong>Boom.</strong> User has been <strong>DE</strong>STROYED.".html_safe
     redirect_to users_path
   end
     

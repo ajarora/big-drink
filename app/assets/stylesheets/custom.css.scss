@@ -20,7 +20,7 @@ html {
 body {
   padding-top: 60px;
   padding-bottom: 40px;
-  background-image: url("../images/bg-tile.png"); background-repeat: repeat; 
+/*  background-image: url("../images/bg-tile.png"); background-repeat: repeat; */
 }
 
 section {
@@ -119,6 +119,34 @@ input, textarea, select, .uneditable-input {
   }
 }
 
+.sidebar {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+/* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
 /* sidebar */
 
 aside {
@@ -167,11 +195,6 @@ aside {
 .drinks {
   list-style: none;
   margin: 10px 0 0 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
 }
 
 .description {
@@ -186,6 +209,8 @@ aside {
 .thumbnail {
 	background-color: white;
 }
+
+
 
 .navbar .brand {
 	font-family: 'Cabin Sketch', cursive;

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603214702) do
+ActiveRecord::Schema.define(:version => 20120605035220) do
 
   create_table "consumptions", :force => true do |t|
     t.integer  "drinker_id"
@@ -55,9 +55,14 @@ ActiveRecord::Schema.define(:version => 20120603214702) do
     t.string   "foursquareID"
     t.float    "lat"
     t.float    "long"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "slug"
+    t.string   "venue_image_uid"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postalCode"
   end
 
   add_index "venues", ["foursquareID"], :name => "index_venues_on_foursquareID", :unique => true

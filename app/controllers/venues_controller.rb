@@ -1,10 +1,27 @@
 class VenuesController < ApplicationController
+  before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy]
   
   def show
     @venue = Venue.find(params[:id])
+    @json = @venue.to_gmaps4rails
     @drinks = @venue.drinks.paginate(page: params[:page])
     @action = "show_venue"
   end
+  
+  def edit
+    @venue = Venue.find(params[:id])
+  end
+  
+  def update
+    @venue = Venue.find(params[:id])
+    if @venue.update_attributes(params[:venue])
+      flash[:success] = "Yeea bitch. Venue updated."
+      redirect_to @venue
+    else
+      render 'edit'
+    end
+  end
+  
   
   def index
     @venues = Venue.paginate(page: params[:page])
@@ -24,7 +41,7 @@ class VenuesController < ApplicationController
                        lat: client.venue(venueID).location.lat,
                        long: client.venue(venueID).location.lng)
     if @venue.save
-      flash[:success] = "#{@venue.name} Successfully Added!"
+      flash[:success] = "<strong>Aw yeea.</strong> #{@venue.name} successfully added.".html_safe
       redirect_to @venue
     else
       render 'new'

@@ -10,6 +10,8 @@ gem 'friendly_id'
 gem 'thin'
 gem 'omniauth-facebook'
 gem 'gmaps4rails'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.12'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

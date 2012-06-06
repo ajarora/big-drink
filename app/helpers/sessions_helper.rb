@@ -27,11 +27,13 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to root_path, notice: "Please sign in to visit that page."
+      redirect_to root_path, notice: "<strong>Dude.</strong> You gotta sign in to visit that page.".html_safe
     end
   end
   
   def admin_user
-    redirect_to(root_path) unless current_user.admin?
+    unless current_user.admin?
+      redirect_to root_path, notice: "<strong>Dude.</strong> You gotta be an admin to visit that page.".html_safe
+    end
   end
 end

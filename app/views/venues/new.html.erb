@@ -8,6 +8,8 @@
       <%= f.label :foursquareID, "Foursquare ID" %>
       <%= f.text_field :foursquareID %>
 
+	  <%= f.file_field :venue_image %>
+
       <%= f.submit "Create Venue", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

@@ -1,24 +1,41 @@
 <% provide(:title, @venue.name) %>
 <div class="row">
-	<aside class="span4">
-    	<section>
-			<h1>
-				<%= gmap_image_100(@venue) %>
-				<%= @venue.name %>
-			</h1>	
-			<ul>
-				<li>Foursquare ID: <%= @venue.foursquareID %></li>
-				<li>LatLong: <%= @venue.lat %>, <%= @venue.long %></li>
-			</ul>
-		</section>
-	</aside>
-	<div class="span8">
-	    <% if @venue.drinks.any? %>
-	      <h3>Drinks (<%= @venue.drinks.count %>)</h3>
-	      <ol class="drinks">
-	        <%= render @drinks %>
-	      </ol>
-	      <%= will_paginate @drinks %>
-	    <% end %>
-	</div>
+  <div class="span5 sidebar">
+	<ul class="thumbnail">
+	  <li class="span4">
+		<div class="thumbnail">
+		  <%= image_tag @venue.venue_image.url %>
+		  <div class="caption">
+		    <p>Bar at <%= @venue.address %> in <%= @venue.city %></p>
+		    <%= gmaps4rails(@json) %>
+		  </div>
+		</div>
+	  </li>
+	  <li class="span2">
+		<div class="thumbnail">
+		  <div class="caption">
+		    <h5>Dudes that have been here:</h5>
+			<p></p>
+		  </div>
+		</div>
+	  </li>
+	  <li class="span2">
+		<div class="thumbnail">
+		  <div class="caption">
+		    <h5>Top Drinks and Lists:</h5>
+			<p></p>
+		  </div>
+		</div>
+	  </li>
+	</ul>
+  </div>
+  <div class="span7">
+      <% if @venue.drinks.any? %>
+        <h3>Drinks (<%= @venue.drinks.count %>)</h3>
+        <ol class="drinks">
+          <%= render @drinks %>
+        </ol>
+        <%= will_paginate @drinks %>
+      <% end %>
+  </div>
 </div>

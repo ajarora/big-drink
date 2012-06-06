@@ -1,7 +1,7 @@
 <div id="drink_actions">
-<% if !@user %>
+<% if !current_user %>
 	<%= render 'drinks/drink_it_login' %>
-<% elsif drink.drank_by?(@user) %>
+<% elsif drink.drank_by?(current_user) %>
 	<%= render 'drinks/drank' %>
 <% else %>
 	<%= render 'drinks/drink_it', drink: drink  %>

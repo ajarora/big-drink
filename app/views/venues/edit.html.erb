@@ -1,0 +1,29 @@
+<h1>Edit Venue</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@venue) do |f| %>
+  	  <%= render 'shared/error_messages' %>
+
+      <%= f.label :foursquareID, "Foursquare ID" %>
+      <%= f.text_field :foursquareID %>
+
+      <%= f.label :address, "Address" %>
+      <%= f.text_field :address %>
+
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city %>
+
+      <%= f.label :state, "State" %>
+      <%= f.text_field :state %>
+
+      <%= f.label :postalCode, "Zip Code" %>
+      <%= f.text_field :postalCode %>
+
+	  <%= image_tag @venue.venue_image.thumb('100x100').url if @venue.venue_image_uid %>
+	  <%= f.file_field :venue_image %>
+
+      <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
