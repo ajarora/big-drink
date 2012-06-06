@@ -20,7 +20,7 @@ html {
 body {
   padding-top: 60px;
   padding-bottom: 40px;
-/*  background-image: url("../images/bg-tile.png"); background-repeat: repeat; */
+  background: #F5EEE3 url("../images/bg-tile.png") repeat;
 }
 
 section {
@@ -33,27 +33,30 @@ textarea {
 
 
 /* footer */
-
 footer {
-  color: $grayLight;
+  color: #B3AC9F;
+  width: 125px;
+  margin: 0 auto;
+  clear: both;
+  text-shadow: 0 1px 0 white;
+  text-align: center;
+  background-color: white;
+  padding: 4px;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
   a {
     color: $gray;
     &:hover { 
       color: $grayDarker;
     }
-  }  
-  small { 
-    float: left; 
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
   }
 }
+
 
 /* miscellaneous */
 
@@ -147,6 +150,20 @@ input, textarea, select, .uneditable-input {
   }
 }
 
+.info-box {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  
+  
+}
+
 /* sidebar */
 
 aside {
@@ -207,17 +224,24 @@ aside {
 /* bootstrap customizations */
 
 .thumbnail {
-	background-color: white;
+  background-color: white;
 }
 
-
+.hero-unit {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #DDD;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
 
 .navbar .brand {
 	font-family: 'Cabin Sketch', cursive;
 	font-size: 36px;
 	color: #CCC;
 	position: absolute;
-	left: 39%;
+	left: 43%;
 	text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
 }
 
@@ -287,15 +311,20 @@ aside {
 
 /* responsive brand-center customizations */
 @media (min-width: 970px) and (max-width: 1062px) {
+  .navbar .brand { left: 39%; }
+}
+
+@media (min-width: 710px) and (max-width: 969px) {
   .navbar .brand { left: 37%; }
 }
 
+
 @media (min-width: 655px) and (max-width: 709px) {
-  .navbar .brand { left: 33%; }
+  .navbar .brand { left: 34%; }
 }
 
 @media (min-width: 535px) and (max-width: 654px) {
-  .navbar .brand { left: 30%; }
+  .navbar .brand { left: 31%; }
 }
 
 @media (min-width: 490px) and (max-width: 534px) {
@@ -303,6 +332,6 @@ aside {
 }
 
 @media (max-width: 489px) {
-  .navbar .brand { left: 20%; }
+  .navbar .brand { left: 21%; }
 }
 
