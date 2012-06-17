@@ -14,11 +14,12 @@
 
 class Drink < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
   
   belongs_to :venue
+  attr_accessible :name, :venue_id, :description, :image_url, :drink_image
   
-  attr_accessible :name, :venue_id, :description, :image_url
+  friendly_id :name, use: :slugged
+  image_accessor :drink_image
 
   validates :name,  presence: true, length: { maximum: 75 }
   validates :venue_id, presence: true
@@ -29,6 +30,9 @@ class Drink < ActiveRecord::Base
   
   has_many :consumptions, foreign_key: "drank_id", dependent: :destroy
   has_many :drinkers, through: :reverse_consumptions, source: :drinker
+  
+  acts_as_taggable
+  acts_as_taggable_on :liquors, :tags, :greens, :mixers
   
   def drank_by?(user)
     consumptions.find_by_drinker_id(user.id)

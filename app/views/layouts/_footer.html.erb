@@ -1,1 +1,30 @@
-<footer class="footer">A hack by <a href="http://www.ajarora.com/">AJ Arora</a></footer>
+<div class="foot-spacer">
+<footer class="footer">
+	A hack by <a href="http://www.ajarora.com/">AJ Arora</a>
+</footer>
+<%= yield :scripts %>
+<script type="text/javascript" charset="utf-8">
+$('.btn-drank').hover(function() {
+  $(this).addClass('btn-primary');
+  $('.icon-ok').addClass('icon-white');
+}, function() {
+  $(this).removeClass('btn-primary icon-white');
+  $('.icon-ok').removeClass('icon-white');
+});
+
+$('.btn-want').hover(function() {
+  $(this).addClass('btn-danger');
+  $('.icon-heart').addClass('icon-white');
+}, function() {
+  $(this).removeClass('btn-danger icon-white');
+  $('.icon-heart').removeClass('icon-white');
+});
+
+$('.btn-comment').hover(function() {
+  $(this).addClass('btn-info');
+  $('.icon-comment').addClass('icon-white');
+}, function() {
+  $(this).removeClass('btn-info icon-white');
+  $('.icon-comment').removeClass('icon-white');
+});
+</script>

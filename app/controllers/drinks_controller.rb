@@ -1,5 +1,7 @@
 class DrinksController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy]
+  
   
   def show
     @drink = Drink.find(params[:id])
@@ -8,6 +10,16 @@ class DrinksController < ApplicationController
   
   def edit
     @drink = Drink.find(params[:id])
+  end
+  
+  def update
+    @drink = Drink.find(params[:id])
+    if @drink.update_attributes(params[:drink])
+      flash[:success] = "Yeea bitch. Drink updated."
+      redirect_to @drink
+    else
+      render 'edit'
+    end
   end
   
   def new

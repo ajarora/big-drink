@@ -1,5 +1,5 @@
-<%= provide(:title, 'New Drink') %>
-<h1>New Drink</h1>
+<%= provide(:title, 'Edit Drink') %>
+<h1>Edit Drink</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -10,13 +10,13 @@
 
 	  <%= f.collection_select(:venue_id, Venue.all, :id, :name) %>
 
-	  <%= image_tag @drink.drink_image.thumb('100x100').url if @drink.drink_image_uid %>
+	  <%= image_tag @drink.drink_image.url if @drink.drink_image_uid %>
 	  <%= f.file_field :drink_image %>
 
       <%= f.label :description %>
       <%= f.text_field :description %>
 
-      <%= f.submit "Create Drink", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Edit Drink", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

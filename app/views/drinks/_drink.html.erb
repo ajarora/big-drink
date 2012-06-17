@@ -1,12 +1,24 @@
 <li class="span3">
 	<div class="thumbnail">
-		<%= link_to image_tag( drink.image_url , alt: drink.name ), drink %>
+		<%= render 'drinks/drink_actions', drink: drink %>
+		<%= link_to(image_tag(drink.drink_image.url, class: "drink"), drink) if drink.drink_image %>
 		<div class="caption">
 			<h5>The <%= link_to drink.name, drink %> from <%= link_to drink.venue.name, drink.venue %></h5>
 			<p><%= drink.description %></p>
 			<p>
-				<%= render 'drinks/drink_actions', drink: drink %>
-			</p>			
+			<% drink.liquor_list.each do |liquor| %>
+	          <span class="label"><%= liquor %></span>
+	      	<% end %>
+			<% drink.mixer_list.each do |mixer| %>
+	          <span class="label label-warning"><%= mixer %></span>
+	      	<% end %>
+			<% drink.green_list.each do |green| %>
+	          <span class="label label-success"><%= green %></span>
+	      	<% end %>
+			<% drink.tag_list.each do |tag| %>
+	          <span class="label label-info"><%= tag %></span>
+	      	<% end %>
+			</p>
 		</div>
 	</div>
 </li>

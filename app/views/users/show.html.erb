@@ -1,12 +1,15 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-		<%= image_tag("https://graph.facebook.com/#{@user.fb_uid}/picture") %>
-        <%= @user.name %>
-      </h1>
-	<strong id="drank" class="stat"><%= @user.drank_drinks.count %></strong> drinks drank
-    </section>
-  </aside>
-</div>
+  <div class="span4 info-box">
+	<h1><%= @user.name %></h1>
+    <%= image_tag("https://graph.facebook.com/#{@user.fb_uid}/picture") %>
+	has drank <strong id="drank" class="stat"><%= @user.drank_drinks.count %></strong> drinks
+	<div class="progress progress-info progress-striped">
+	  <div class="bar" style="width: 50%;"></div>
+	</div>
+  </div>
+
+  <% if @user.drank_drinks.any? %>
+    <ol class="drinks">
+      <%= render @user.drank_drinks %>
+    </ol>
+  <% end %>
