@@ -1,10 +1,10 @@
 <% provide(:title, @user.name) %>
   <div class="span4 info-box">
+	<%= image_tag("https://graph.facebook.com/#{@user.fb_uid}/picture?type=large",  class: "profile-pic") %>
 	<h1><%= @user.name %></h1>
-    <%= image_tag("https://graph.facebook.com/#{@user.fb_uid}/picture") %>
-	has drank <strong id="drank" class="stat"><%= @user.drank_drinks.count %></strong> drinks
-	<div class="progress progress-info progress-striped">
-	  <div class="bar" style="width: 50%;"></div>
+	has drank <strong><%= @user.drank_drinks.count %></strong> of <strong><%= Drink.count %></strong> drinks
+	<div class="progress progress-info progress-striped active">
+	  <div class="bar" style="width: <%= (@user.drank_drinks.count.to_f / Drink.count)*100 %>%;"></div>
 	</div>
   </div>
 
