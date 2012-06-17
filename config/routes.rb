@@ -5,7 +5,7 @@ BigDrink::Application.routes.draw do
   resources :drinks
   resources :users
   resources :consumptions, only: [:create, :destroy]
-    
+
   root to: 'static_pages#home'
   
   match "auth/facebook/callback" => "sessions#create"

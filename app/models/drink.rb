@@ -16,7 +16,8 @@ class Drink < ActiveRecord::Base
   extend FriendlyId
   
   belongs_to :venue
-  attr_accessible :name, :venue_id, :description, :image_url, :drink_image
+  attr_accessible :name, :venue_id, :description, :image_url, :drink_image,
+                  :liquor_list, :tag_list, :green_list, :mixer_list
   
   friendly_id :name, use: :slugged
   image_accessor :drink_image
