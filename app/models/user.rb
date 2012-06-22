@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   validates :fb_uid, presence: true, uniqueness: true
   validates :fb_access_token, presence: true
   
-  def create_with_omniauth(auth)
+  def self.create_with_omniauth(auth)
     create! do |user|
       user.fb_uid = auth["uid"]
       user.name = auth["info"]["name"]
