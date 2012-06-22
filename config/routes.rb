@@ -1,9 +1,5 @@
 BigDrink::Application.routes.draw do
-  get "users/new"
-
-  resources :venues
-  resources :drinks
-  resources :users
+  resources :venues, :drinks, :users
   resources :consumptions, only: [:create, :destroy]
 
   root to: 'static_pages#home'
@@ -35,9 +31,6 @@ BigDrink::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
   # Sample resource route with options:
   #   resources :products do
@@ -71,10 +64,6 @@ BigDrink::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

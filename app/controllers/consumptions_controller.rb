@@ -7,7 +7,7 @@ class ConsumptionsController < ApplicationController
       format.html
       format.js
     end
-    @graph  = Koala::Facebook::GraphAPI.new(current_user.fb_access_token)
-    @graph.put_connections("me", "#{FB_NAMESPACE}:drink", :drink => drink_url(@drink))
+    @graph = Koala::Facebook::GraphAPI.new(current_user.fb_access_token)
+    @graph.put_connections("me", "#{FB_NAMESPACE}:drink", :drink => Rails.application.routes.url_helpers.drink_url(@drink))
   end
 end

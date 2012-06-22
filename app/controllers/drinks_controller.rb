@@ -1,7 +1,7 @@
 class DrinksController < ApplicationController
   before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_filter :admin_user, only: [:new, :create, :edit, :update, :destroy]
-      
+  
   def show
     @drink = Drink.find(params[:id])
     @action = "show_drink"
@@ -14,7 +14,7 @@ class DrinksController < ApplicationController
   def update
     @drink = Drink.find(params[:id])
     if @drink.update_attributes(params[:drink])
-      flash[:success] = "<strong>Yeea bitch.</strong> Drink updated."
+      flash[:success] = "<strong>Yeea bitch.</strong> Drink updated.".html_safe
       redirect_to @drink
     else
       render 'edit'
