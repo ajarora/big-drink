@@ -16,7 +16,7 @@ class Drink < ActiveRecord::Base
   extend FriendlyId
   
   belongs_to :venue
-  attr_accessible :name, :venue_id, :description, :image_url, :drink_image,
+  attr_accessible :name, :venue_id, :description, :drink_image,
                   :liquor_list, :tag_list, :green_list, :mixer_list
   
   friendly_id :name, use: :slugged
@@ -25,7 +25,7 @@ class Drink < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 75 }
   validates :venue_id, presence: true
   validates :description, length: { maximum: 500 }
-  validates :image_url, length: { maximum: 500 }
+  validates :drink_image, presence: true
   
   default_scope order: 'drinks.created_at DESC'
   

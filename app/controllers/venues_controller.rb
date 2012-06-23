@@ -16,7 +16,7 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
     if @venue.update_attributes(params[:venue])
-      flash[:success] = "Yeea bitch. Venue updated."
+      flash[:success] = "<strong>Yeea bitch.</strong> #{@venue.name} updated.".html_safe
       redirect_to @venue
     else
       render 'edit'
