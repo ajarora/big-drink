@@ -2,14 +2,14 @@
 #
 # Table name: drinks
 #
-#  id          :integer         not null, primary key
-#  name        :string(255)
-#  venue_id    :integer
-#  image_url   :string(255)
-#  description :string(255)
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
-#  slug        :string(255)
+#  id              :integer         not null, primary key
+#  name            :string(255)
+#  venue_id        :integer
+#  description     :string(255)
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  slug            :string(255)
+#  drink_image_uid :string(255)
 #
 
 class Drink < ActiveRecord::Base

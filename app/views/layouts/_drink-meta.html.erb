@@ -2,6 +2,6 @@
 <meta property="og:type"   content="<%=  FB_NAMESPACE %>:drink" /> 
 <meta property="og:url"    content="<%= drink_url @drink %>" /> 
 <meta property="og:title"  content="<%= @drink.name %>" /> 
-<meta property="og:image"  content="<%= @drink.drink_image.url %>" />
+<meta property="og:image"  content="<%= "https://#{DOMAIN}#{@drink.drink_image.url}" %>" />
 <meta property="og:description" content="<%= @drink.description %>" /> 
 <meta property="og:determiner" content="the" />
