@@ -15,9 +15,8 @@
 	<i class="icon-comment"> </i>
 	  Comment
 	<% end %>
-	
-  <% else %>
 
+  <% else %>
     <% if drink.drank_by?(current_user) %>
 
       <%= link_to "#", class: "btn btn-mini btn-drank disabled" do %>
@@ -35,13 +34,12 @@
 	  <% end %>
     
     <% else %>
-
       <%= form_for(drink.consumptions.build(drinker_id: current_user.id, drank_id: drink.id), remote: true ) do |f| %>
 	    <%= f.hidden_field :drinker_id %>
 	    <%= f.hidden_field :drank_id %>
-		<%= link_to "#", class: "btn btn-mini btn-drank", :onclick=>"$(this).closest('form').submit()" do %>
+		<%= link_to "#", class: "btn btn-mini btn-drank", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
 	        <i class="icon-ok"> </i>
-			Drank it?
+			Drank
 		<% end %>
 		
 		<%= link_to "#", class: "btn btn-mini btn-want" do %>
@@ -52,10 +50,8 @@
 	  	  <i class="icon-comment"> </i>
 	   	  Comment
 	    <% end %>
-	
 	  <% end %>
 	<% end %>
   <% end %>
-
 </div>
 </div>
