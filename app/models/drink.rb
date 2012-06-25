@@ -30,7 +30,9 @@ class Drink < ActiveRecord::Base
   default_scope order: 'drinks.created_at DESC'
   
   has_many :consumptions, foreign_key: "drank_id", dependent: :destroy
-  has_many :drinkers, through: :reverse_consumptions, source: :drinker
+  has_many :drinkers, through: :reverse_likes, source: :liker
+  has_many :likes, foreign_key: "liked_id", dependent: :destroy
+  has_many :likers, through: :reverse_likes, source: :liker
   
   acts_as_taggable
   acts_as_taggable_on :liquors, :tags, :greens, :mixers
@@ -43,4 +45,11 @@ class Drink < ActiveRecord::Base
     consumptions.create!(drinker_id: user.id)
   end
 
+  def liked_by?(user)
+    likes.find_by_liker_id(user.id)
+  end
+  
+  def like!(user)
+    likes.create!(liker_id: user.id)
+  end
 end

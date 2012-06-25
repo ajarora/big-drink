@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   has_many :consumptions, foreign_key: "drinker_id", dependent: :destroy
   has_many :drank_drinks, through: :consumptions, source: :drank
   
+  has_many :likes, foreign_key: "liker_id", dependent: :destroy
+  has_many :liked_drinks, through: :likes, source: :liked
+  
   validates :name, presence: true, uniqueness: true
   validates :fb_uid, presence: true, uniqueness: true
   validates :fb_access_token, presence: true
@@ -44,5 +47,17 @@ class User < ActiveRecord::Base
   
   def undrink!(drink)
     consumptions.find_by_drank_id(drink.id).destroy
+  end
+  
+  def liked?(drink)
+    likes.find_by_liked_id(drink.id)
+  end
+
+  def like!(drink)
+    likes.create!(liked_id: drink.id)
+  end
+  
+  def unlike!(drink)
+    likes.find_by_liked_id(drink.id).destroy
   end
 end
