@@ -7,34 +7,24 @@
 	  Drank
 	<% end %>
 	
-	<%= link_to "#", class: "btn btn-mini btn-want" do %>
+	<%= link_to "auth/facebook", class: "btn btn-mini btn-want" do %>
 	  <i class="icon-heart"></i>
 	<% end %>
     
-	<%= link_to "#", class: "btn btn-mini btn-comment" do %>
+	<%= link_to "auth/facebook", class: "btn btn-mini btn-comment" do %>
 	<i class="icon-comment"> </i>
 	  Comment
 	<% end %>
 
   <% else %>
     <% if drink.drank_by?(current_user) %>
-
       <%= link_to "#", class: "btn btn-mini btn-drank disabled" do %>
         <i class="icon-ok"> </i>
 	    Drank
 	  <% end %>
 	
-	  <%= link_to "#", class: "btn btn-mini btn-want" do %>
-	    <i class="icon-heart"></i>
-	  <% end %>
-
-	  <%= link_to "#", class: "btn btn-mini btn-comment" do %>
-	  <i class="icon-comment"> </i>
-	    Comment
-	  <% end %>
-    
-    <% else %>
-      <%= form_for(drink.consumptions.build(drinker_id: current_user.id, drank_id: drink.id), remote: true ) do |f| %>
+	<% else %>
+      <%= form_for(drink.consumptions.build(drinker_id: current_user.id, drank_id: drink.id), remote: true, html: {class: 'form-drink-actions'}) do |f| %>
 	    <%= f.hidden_field :drinker_id %>
 	    <%= f.hidden_field :drank_id %>
 		<%= link_to "#", class: "btn btn-mini btn-drank", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
@@ -42,19 +32,27 @@
 			Drank
 		<% end %>
 	  <% end %>
+	<% end %>
 	
-	  <%= form_for(drink.likes.build(liker_id: current_user.id, liked_id: drink.id), remote: true ) do |f| %>
+	<% if drink.liked_by?(current_user) %>
+      <%= link_to "#", class: "btn btn-mini btn-want disabled" do %>
+        <i class="icon-heart"> </i>
+	  <% end %>
+	
+	<% else %>
+	  <%= form_for(drink.likes.build(liker_id: current_user.id, liked_id: drink.id), remote: true, html: {class: 'form-drink-actions'}) do |f| %>
 	    <%= f.hidden_field :liker_id %>
 	    <%= f.hidden_field :liked_id %>
 		<%= link_to "#", class: "btn btn-mini btn-want", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
 	    <i class="icon-heart"></i>
 	  	<% end %>
-	  <% end %>
 	
-	  <%= link_to "#", class: "btn btn-mini btn-comment" do %>
-	  	<i class="icon-comment"> </i>
-	   	Comment
 	  <% end %>
+	<% end %>
+	
+	<%= link_to "#", class: "btn btn-mini btn-comment" do %>
+	  <i class="icon-comment"> </i>
+	  Comment
 	<% end %>
   <% end %>
 </div>
