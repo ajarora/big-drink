@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623003539) do
+ActiveRecord::Schema.define(:version => 20120624061930) do
 
   create_table "consumptions", :force => true do |t|
     t.integer  "drinker_id"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(:version => 20120623003539) do
   end
 
   add_index "drinks", ["slug"], :name => "index_drinks_on_slug", :unique => true
+
+  create_table "likes", :force => true do |t|
+    t.integer  "liker_id"
+    t.integer  "liked_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "likes", ["liked_id"], :name => "index_likes_on_liked_id"
+  add_index "likes", ["liker_id", "liked_id"], :name => "index_likes_on_liker_id_and_liked_id", :unique => true
+  add_index "likes", ["liker_id"], :name => "index_likes_on_liker_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

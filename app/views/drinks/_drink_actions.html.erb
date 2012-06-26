@@ -41,15 +41,19 @@
 	        <i class="icon-ok"> </i>
 			Drank
 		<% end %>
-		
-		<%= link_to "#", class: "btn btn-mini btn-want" do %>
+	  <% end %>
+	
+	  <%= form_for(drink.likes.build(liker_id: current_user.id, liked_id: drink.id), remote: true ) do |f| %>
+	    <%= f.hidden_field :liker_id %>
+	    <%= f.hidden_field :liked_id %>
+		<%= link_to "#", class: "btn btn-mini btn-want", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
 	    <i class="icon-heart"></i>
 	  	<% end %>
+	  <% end %>
 	
-		<%= link_to "#", class: "btn btn-mini btn-comment" do %>
-	  	  <i class="icon-comment"> </i>
-	   	  Comment
-	    <% end %>
+	  <%= link_to "#", class: "btn btn-mini btn-comment" do %>
+	  	<i class="icon-comment"> </i>
+	   	Comment
 	  <% end %>
 	<% end %>
   <% end %>

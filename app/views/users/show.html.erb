@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @user.name.html_safe) %>
   <div class="span4 info-box">
 	<%= image_tag("https://graph.facebook.com/#{@user.fb_uid}/picture?type=large",  class: "profile-pic") %>
 	<h1><%= @user.name %></h1>

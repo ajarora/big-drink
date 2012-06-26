@@ -1,6 +1,7 @@
 BigDrink::Application.routes.draw do
   resources :venues, :drinks, :users
   resources :consumptions, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 
   root to: 'static_pages#home'
   

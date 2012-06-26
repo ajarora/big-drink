@@ -1,4 +1,4 @@
-<% provide(:title, @venue.name) %>
+<% provide(:title, @venue.name.html_safe) %>
   <div class="span5 info-box">
     <%= image_tag @venue.venue_image.url if @venue.venue_image %>
 	<p> <%= "Bar at #{@venue.address} in #{@venue.city}" if @venue.address %></p>
