@@ -7,7 +7,7 @@
 	  Drank
 	<% end %>
 	
-	<%= link_to "auth/facebook", class: "btn btn-mini btn-want" do %>
+	<%= link_to "auth/facebook", class: "btn btn-mini btn-like" do %>
 	  <i class="icon-heart"></i>
 	<% end %>
     
@@ -44,16 +44,17 @@
 		
 	  <%= form_for(current_user.likes.find_by_liked_id(drink), remote: true,
 				   html: {method: :delete, class: 'form-drink-actions'}) do |f| %>
-		<%= link_to "#", class: "btn btn-mini btn-drank disabled", :onclick=>"$(this).closest('form').submit(); $(this).removeClass('disabled'); return false;" do %>
+		<%= link_to "#", class: "btn btn-mini btn-like disabled", :onclick=>"$(this).closest('form').submit(); $(this).removeClass('disabled'); return false;" do %>
 	        <i class="icon-heart"> </i>
 		<% end %>
 	  <% end %>
 	
 	<% else %>
+	
 	  <%= form_for(drink.likes.build(liker_id: current_user.id, liked_id: drink.id), remote: true, html: {class: 'form-drink-actions'}) do |f| %>
 	    <%= f.hidden_field :liker_id %>
 	    <%= f.hidden_field :liked_id %>
-		<%= link_to "#", class: "btn btn-mini btn-want", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
+		<%= link_to "#", class: "btn btn-mini btn-like", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
 	    <i class="icon-heart"></i>
 	  	<% end %>
 	
@@ -64,6 +65,7 @@
 	  <i class="icon-comment"> </i>
 	  Comment
 	<% end %>
+	
   <% end %>
 </div>
 </div>
