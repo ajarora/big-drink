@@ -3,7 +3,7 @@
   <% if !current_user %>
 
     <%= link_to "auth/facebook", class: "btn btn-mini btn-drank" do %>
-      <i class="icon-ok"> </i>
+      <i class="icon-check"> </i>
 	  Drank
 	<% end %>
 	
@@ -18,25 +18,35 @@
 
   <% else %>
     <% if drink.drank_by?(current_user) %>
-      <%= link_to "#", class: "btn btn-mini btn-drank disabled" do %>
-        <i class="icon-ok"> </i>
-	    Drank
+	
+	  <%= form_for(current_user.consumptions.find_by_drank_id(drink), remote: true,
+				   html: {method: :delete, class: 'form-drink-actions'}) do |f| %>
+		<%= link_to "#", class: "btn btn-mini btn-drank disabled", :onclick=>"$(this).closest('form').submit(); $(this).removeClass('disabled'); return false;" do %>
+	        <i class="icon-check"> </i>
+			Drink
+		<% end %>
 	  <% end %>
 	
 	<% else %>
+	
       <%= form_for(drink.consumptions.build(drinker_id: current_user.id, drank_id: drink.id), remote: true, html: {class: 'form-drink-actions'}) do |f| %>
 	    <%= f.hidden_field :drinker_id %>
 	    <%= f.hidden_field :drank_id %>
 		<%= link_to "#", class: "btn btn-mini btn-drank", :onclick=>"$(this).closest('form').submit(); $(this).addClass('disabled'); return false;" do %>
-	        <i class="icon-ok"> </i>
+	        <i class="icon-check"> </i>
 			Drank
 		<% end %>
 	  <% end %>
+	
 	<% end %>
 	
 	<% if drink.liked_by?(current_user) %>
-      <%= link_to "#", class: "btn btn-mini btn-want disabled" do %>
-        <i class="icon-heart"> </i>
+		
+	  <%= form_for(current_user.likes.find_by_liked_id(drink), remote: true,
+				   html: {method: :delete, class: 'form-drink-actions'}) do |f| %>
+		<%= link_to "#", class: "btn btn-mini btn-drank disabled", :onclick=>"$(this).closest('form').submit(); $(this).removeClass('disabled'); return false;" do %>
+	        <i class="icon-heart"> </i>
+		<% end %>
 	  <% end %>
 	
 	<% else %>

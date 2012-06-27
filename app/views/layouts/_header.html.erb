@@ -22,12 +22,10 @@
 				<% end %>
 			</li>
             <li class="divider"></li>
-            <li><%= link_to "Sign Out", signout_path %></li>
+            <li><a href= "<%= url_for signout_path %>"><i class=" icon-remove-sign"></i> Sign out</a></li>
           </ul>
 		<% else %>
-		  <%= link_to "/auth/facebook", class: "btn btn-inverse btn-signin" do %>
-			Sign in
-		  <% end %>
+		  <%= link_to "/auth/facebook", class: "btn btn-inverse btn-signin" %>
 		<% end %>
 
       </div>

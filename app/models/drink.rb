@@ -44,6 +44,10 @@ class Drink < ActiveRecord::Base
   def drink!(user)
     consumptions.create!(drinker_id: user.id)
   end
+  
+  def undrink!(user)
+    consumptions.find_by_drinker_id(user.id).destroy
+  end
 
   def liked_by?(user)
     likes.find_by_liker_id(user.id)
@@ -51,5 +55,9 @@ class Drink < ActiveRecord::Base
   
   def like!(user)
     likes.create!(liker_id: user.id)
+  end
+  
+  def unlike!(user)
+    likes.find_by_liker_id(user.id).destroy
   end
 end
