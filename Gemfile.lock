@@ -30,9 +30,15 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.3.1)
       rails (~> 3.0)
+    acts_as_commentable_with_threading (1.1.2)
+      activerecord (>= 3.0)
+      activesupport (~> 3.0)
+      awesome_nested_set (>= 2.0)
     addressable (2.2.8)
     annotate (2.4.1.beta1)
     arel (3.0.2)
+    awesome_nested_set (2.1.3)
+      activerecord (>= 3.0.0)
     bootstrap-sass (2.0.3)
     bootstrap-will_paginate (0.0.5)
       will_paginate
@@ -187,6 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 2.3.1)
+  acts_as_commentable_with_threading
   annotate (~> 2.4.1.beta)
   bootstrap-sass (~> 2.0.3)
   bootstrap-will_paginate (= 0.0.5)

@@ -36,6 +36,7 @@ class Drink < ActiveRecord::Base
   
   acts_as_taggable
   acts_as_taggable_on :liquors, :tags, :greens, :mixers
+  acts_as_commentable
   
   def drank_by?(user)
     consumptions.find_by_drinker_id(user.id)

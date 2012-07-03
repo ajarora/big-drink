@@ -13,6 +13,7 @@ gem 'gmaps4rails'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.12'
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'acts_as_commentable_with_threading'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

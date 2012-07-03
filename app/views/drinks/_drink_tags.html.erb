@@ -1,0 +1,16 @@
+<div class="drink-row">
+  <p>
+    <% drink.liquor_list.each do |liquor| %>
+      <span class="label"><%= liquor %></span>
+    <% end %>
+    <% drink.mixer_list.each do |mixer| %>
+      <span class="label label-warning"><%= mixer %></span>
+    <% end %>
+    <% drink.green_list.each do |green| %>
+      <span class="label label-success"><%= green %></span>
+    <% end %>
+    <% drink.tag_list.each do |tag| %>
+      <span class="label label-info"><%= tag %></span>
+    <% end %>
+  </p>
+</div>

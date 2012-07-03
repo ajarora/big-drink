@@ -1,0 +1,9 @@
+<% drink.root_comments.each do |comment| %>
+  <div class="drink-row">
+	<%= link_to(image_tag("https://graph.facebook.com/#{comment.user.fb_uid}/picture", 
+	                      class: "avatar-mini"), comment.user) %>
+	<p class="drink-row-convo">
+	  <%= link_to(comment.user.name, comment.user) + " \"#{comment.body}\"" %>
+	</p>
+  </div>
+<% end %>
